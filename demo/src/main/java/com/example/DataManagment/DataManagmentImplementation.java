@@ -1,6 +1,5 @@
 package com.example.DataManagment;
 
-<<<<<<< Updated upstream
 import java.util.List;
 
 import com.example.UserManagment.User;
@@ -16,8 +15,4 @@ public class DataManagmentImplementation implements DataManagmentInterface {
         return null;
     }
 
-=======
-public class DataManagmentImplementation implements DataManagmentInterface {
-
->>>>>>> Stashed changes
 }

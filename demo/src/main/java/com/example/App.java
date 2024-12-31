@@ -1,7 +1,6 @@
 package com.example;
 
 import java.util.List;
-import java.util.Scanner;
 
 import com.example.DataManagment.DataManagmentImplementation;
 import com.example.DataManagment.DataManagmentInterface;
