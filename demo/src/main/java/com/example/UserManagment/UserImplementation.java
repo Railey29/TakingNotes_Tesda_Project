@@ -1,5 +1,6 @@
 package com.example.UserManagment;
 
+<<<<<<< Updated upstream
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -54,4 +55,8 @@ public class UserImplementation implements UserInterface {
         }
     }
 
+=======
+public class UserImplementation implements UserInterface {
+
+>>>>>>> Stashed changes
 }
