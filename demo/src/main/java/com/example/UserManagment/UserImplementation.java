@@ -76,8 +76,8 @@ public class UserImplementation implements UserInterface {
                   int UserYear = input.nextInt();
                   if (UserYear >= 2023 && UserYear <= 2023) {
                     String FormatYear = VerMonth + "-" + UserDay + "-" + UserYear;
-                    System.out.println("Your Date:" + FormatYear);
-					System.out.print("Choice One: (1.TAKS , 2.EVENT , 3.REMAINDER): ");
+                    System.out.println("Your Date:" + FormatYear); 
+           System.out.print("Choice One: (1.TASK , 2.EVENT , 3.REMAINDER): ");
 					ChoiceTypeNotes = input.nextInt();
 					if(ChoiceTypeNotes == 1){
 					System.out.print("Enter Task : ");
