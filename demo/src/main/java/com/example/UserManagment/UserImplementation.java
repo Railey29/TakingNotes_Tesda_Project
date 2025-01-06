@@ -55,7 +55,7 @@ public class UserImplementation implements UserInterface {
     }
 
 }
-   // Add Method
+    // Add Method
     public void Add() throws Exception {
       System.out.println("-- ADD YOUR NOTE --");
       System.out.println("Format: (M-D-YYYY) , (1-2-2023)");
@@ -76,78 +76,77 @@ public class UserImplementation implements UserInterface {
                   int UserYear = input.nextInt();
                   if (UserYear >= 2023 && UserYear <= 2023) {
                     String FormatYear = VerMonth + "-" + UserDay + "-" + UserYear;
-                    System.out.println("Your Date:" + FormatYear); 
-           System.out.print("Choice One: (1.TASK , 2.EVENT , 3.REMAINDER): ");
-					ChoiceTypeNotes = input.nextInt();
-					if(ChoiceTypeNotes == 1){
-					System.out.print("Enter Task : ");
-                    input.nextLine();
-                    String Notes = input.nextLine();
-                    Task.put(FormatYear, Notes);
-						try (BufferedWriter TaskWriter = new BufferedWriter(new FileWriter(TaskData, true))) {
-							for (Map.Entry < String, String > entry: Task.entrySet()) {
-							  String TaskView = "Task :	" + 	entry.getKey() + " : " + entry.getValue();
-							  TaskWriter.write(TaskView + "\n");
-							}
-						} catch (IOException e) {
-							System.out.println(e);
-							}
-						System.out.println("Successfully Added!");	
-						} //1
-						else if(ChoiceTypeNotes == 2){
-							try (BufferedWriter TaskWriter = new BufferedWriter(new FileWriter(TaskData, true))) {
-								for (Map.Entry < String, String > entry: Task.entrySet()) {
-								  String TaskView = "Task :	" + 	entry.getKey() + " : " + entry.getValue();
-								  TaskWriter.write(TaskView + "\n");
-								}
-							} catch (IOException e) {
-								System.out.println(e);
-								}
-						}// 2
-						else{
-							System.out.println("Invalid Input");
-						}
-						
-                  } else {
-                    System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
-                    continue;
-                  }
+                    System.out.println("Your Date:" + FormatYear);
+	System.out.print("Choice One: (1.TAKS , 2.EVENT , 3.REMAINDER): ");
+	ChoiceTypeNotes = input.nextInt();
+	if(ChoiceTypeNotes == 1){
+	System.out.print("Enter Task : ");
+            input.nextLine();
+             String Notes = input.nextLine();
+             Task.put(FormatYear, Notes);
+	try (BufferedWriter TaskWriter = new BufferedWriter(new FileWriter(TaskData, true))) {
+	for (Map.Entry < String, String > entry: Task.entrySet()) {
+	String TaskView = "Task :	" + 	entry.getKey() + " : " + entry.getValue();
+	TaskWriter.write(TaskView + "\n");
+	}
+} catch (IOException e) {
+  System.out.println(e);
+}
+  System.out.println("Successfully Added!");	
+} //1
+else if(ChoiceTypeNotes == 2){
+try (BufferedWriter TaskWriter = new BufferedWriter(new FileWriter(TaskData, true))) {
+for (Map.Entry < String, String > entry: Task.entrySet()) {
+ String TaskView = "Task :	" + 	entry.getKey() + " : " + entry.getValue();
+TaskWriter.write(TaskView + "\n");
+}
+} catch (IOException e) {
+System.out.println(e);
+}
+}// 2
+else{
+   System.out.println("Invalid Input");
+}
+   } else {
+   System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
+  continue;
+  }
+     } else {
+    System.out.println("error: Invalid Day On This Month");
+     input.nextLine();
+      continue;
+   }
+     } // End of Jan
+       else if (VerMonth == 2) { // feb
+       System.out.print("Enter Day: ");
+        int UserDay = input.nextInt();
+           if (UserDay >= 1 && UserDay <= 28) {
+           System.out.print("Enter A Year: ");
+             int UserYear = input.nextInt();
+            if (UserYear >= 2023 && UserYear <= 2023) {
+            String FormatYear = VerMonth + "-" + UserDay + "-" + UserYear;
+            System.out.println("Your Date: " + FormatYear);
+            System.out.print("Enter Note: ");
+             input.nextLine();
+          String Notes = input.nextLine();
+            hashmap.put(FormatYear, Notes);
+            System.out.println("Successfully Added!");
+try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	  } catch (IOException e) {
+	System.out.println(e);
+	 }
+               } else {
+            System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
+               continue;
+              }
                 } else {
-                  System.out.println("error: Invalid Day On This Month");
-                  input.nextLine();
-                  continue;
-                }
-              } // End of Jan
-              else if (VerMonth == 2) { // feb
-                System.out.print("Enter Day: ");
-                int UserDay = input.nextInt();
-                if (UserDay >= 1 && UserDay <= 28) {
-                  System.out.print("Enter A Year: ");
-                  int UserYear = input.nextInt();
-                  if (UserYear >= 2023 && UserYear <= 2023) {
-                    String FormatYear = VerMonth + "-" + UserDay + "-" + UserYear;
-                    System.out.println("Your Date: " + FormatYear);
-                    System.out.print("Enter Note: ");
-                    input.nextLine();
-                    String Notes = input.nextLine();
-                    hashmap.put(FormatYear, Notes);
-                    System.out.println("Successfully Added!");
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                  } else {
-                    System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
-                    continue;
-                  }
-                } else {
-                  System.out.println("error: Invalid Day On This Month");
-                  input.nextLine();
-                  continue;
+                 System.out.println("error: Invalid Day On This Month");
+                 input.nextLine();
+                 continue;
                 }
               } else if (VerMonth == 3) { // march
                 System.out.print("Enter Day: ");
@@ -162,15 +161,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	} catch (IOException e) {
+	System.out.println(e);
+	 }
+              System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
@@ -193,15 +192,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	 viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	 } catch (IOException e) {
+	System.out.println(e);
+	  }
+             System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, Less than 2023 Is not Supported.");
                     continue;
@@ -224,15 +223,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	  viewAll = entry.getKey() + " : " + entry.getValue();
+	 writer.write(viewAll + "\n");
+	}
+	 } catch (IOException e) {
+	System.out.println(e);
+	}
+             System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
@@ -255,15 +254,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+		for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	 viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	 } catch (IOException e) {
+	System.out.println(e);
+	}
+            System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
@@ -286,14 +285,14 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	 writer.write(viewAll + "\n");
+	}
+	} catch (IOException e) {
+	System.out.println(e);
+	}
                     System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
@@ -317,15 +316,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	 writer.write(viewAll + "\n");
+	}
+	 } catch (IOException e) {
+	System.out.println(e);
+	}
+            System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
@@ -348,17 +347,17 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	} catch (IOException e) {
+	System.out.println(e);
+	 }
+                System.out.println("Successfully Added!");
                   } else {
-					System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
+			System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
                   }
                 } else {
@@ -379,14 +378,14 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	} catch (IOException e) {
+	System.out.println(e);
+	 }
                     System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
@@ -410,15 +409,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+	for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+	viewAll = entry.getKey() + " : " + entry.getValue();
+	writer.write(viewAll + "\n");
+	}
+	} catch (IOException e) {
+	System.out.println(e);
+	}
+                   System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
@@ -441,15 +440,15 @@ public class UserImplementation implements UserInterface {
                     input.nextLine();
                     String Notes = input.nextLine();
                     hashmap.put(FormatYear, Notes);
-					try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
-						for (Map.Entry < String, String > entry: hashmap.entrySet()) {
-						  viewAll = entry.getKey() + " : " + entry.getValue();
-						  writer.write(viewAll + "\n");
-						}
-					  } catch (IOException e) {
-						System.out.println(e);
-					  }
-                    System.out.println("Successfully Added!");
+try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+for (Map.Entry < String, String > entry: hashmap.entrySet()) {
+viewAll = entry.getKey() + " : " + entry.getValue();
+ writer.write(viewAll + "\n");
+}
+} catch (IOException e) {
+System.out.println(e);
+ }
+                 System.out.println("Successfully Added!");
                   } else {
                     System.out.println("error: This Teach-Note is Created 2023, And 2023 can support this programm.");
                     continue;
